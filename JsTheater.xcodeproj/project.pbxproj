@@ -49,7 +49,6 @@
 		B6589D5C1DB2CC1F00991E5A /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = B6589D341DB2CC1F00991E5A /* .gitkeep */; };
 		B6589D5D1DB2CC1F00991E5A /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = B6589D361DB2CC1F00991E5A /* .gitkeep */; };
 		B6589D5E1DB2CC1F00991E5A /* TUSafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D381DB2CC1F00991E5A /* TUSafariActivity.m */; };
-		B6589D5F1DB2CC1F00991E5A /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D3A1DB2CC1F00991E5A /* GTMNSString+HTML.m */; };
 		B6589D601DB2CC1F00991E5A /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B6589D3D1DB2CC1F00991E5A /* backbutton.png */; };
 		B6589D611DB2CC1F00991E5A /* backbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6589D3E1DB2CC1F00991E5A /* backbutton@2x.png */; };
 		B6589D621DB2CC1F00991E5A /* backbutton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6589D3F1DB2CC1F00991E5A /* backbutton@3x.png */; };
@@ -57,12 +56,6 @@
 		B6589D641DB2CC1F00991E5A /* forwardbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6589D411DB2CC1F00991E5A /* forwardbutton@2x.png */; };
 		B6589D651DB2CC1F00991E5A /* forwardbutton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6589D421DB2CC1F00991E5A /* forwardbutton@3x.png */; };
 		B6589D661DB2CC1F00991E5A /* KINWebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D441DB2CC1F00991E5A /* KINWebBrowserViewController.m */; };
-		B6589D671DB2CC1F00991E5A /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D461DB2CC1F00991E5A /* MWFeedInfo.m */; };
-		B6589D681DB2CC1F00991E5A /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D481DB2CC1F00991E5A /* MWFeedItem.m */; };
-		B6589D691DB2CC1F00991E5A /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D4A1DB2CC1F00991E5A /* MWFeedParser.m */; };
-		B6589D6A1DB2CC1F00991E5A /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D4D1DB2CC1F00991E5A /* NSDate+InternetDateTime.m */; };
-		B6589D6B1DB2CC1F00991E5A /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D4F1DB2CC1F00991E5A /* NSString+HTML.m */; };
-		B6589D6C1DB2CC1F00991E5A /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = B6589D511DB2CC1F00991E5A /* NSString+XMLEntities.m */; };
 		B6589D6D1DB2CC1F00991E5A /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6589D521DB2CC1F00991E5A /* SideBar.swift */; };
 		B6589D6E1DB2CC1F00991E5A /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6589D531DB2CC1F00991E5A /* SideBarTableViewController.swift */; };
 		B6ADBBD31DB6B816001FDF9D /* asdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADBBD21DB6B816001FDF9D /* asdf.swift */; };
@@ -157,8 +150,6 @@
 		B6589D361DB2CC1F00991E5A /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		B6589D371DB2CC1F00991E5A /* TUSafariActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSafariActivity.h; sourceTree = "<group>"; };
 		B6589D381DB2CC1F00991E5A /* TUSafariActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSafariActivity.m; sourceTree = "<group>"; };
-		B6589D391DB2CC1F00991E5A /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
-		B6589D3A1DB2CC1F00991E5A /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		B6589D3D1DB2CC1F00991E5A /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
 		B6589D3E1DB2CC1F00991E5A /* backbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@2x.png"; sourceTree = "<group>"; };
 		B6589D3F1DB2CC1F00991E5A /* backbutton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backbutton@3x.png"; sourceTree = "<group>"; };
@@ -167,19 +158,6 @@
 		B6589D421DB2CC1F00991E5A /* forwardbutton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forwardbutton@3x.png"; sourceTree = "<group>"; };
 		B6589D431DB2CC1F00991E5A /* KINWebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KINWebBrowserViewController.h; sourceTree = "<group>"; };
 		B6589D441DB2CC1F00991E5A /* KINWebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINWebBrowserViewController.m; sourceTree = "<group>"; };
-		B6589D451DB2CC1F00991E5A /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
-		B6589D461DB2CC1F00991E5A /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
-		B6589D471DB2CC1F00991E5A /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
-		B6589D481DB2CC1F00991E5A /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
-		B6589D491DB2CC1F00991E5A /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
-		B6589D4A1DB2CC1F00991E5A /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
-		B6589D4B1DB2CC1F00991E5A /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
-		B6589D4C1DB2CC1F00991E5A /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
-		B6589D4D1DB2CC1F00991E5A /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
-		B6589D4E1DB2CC1F00991E5A /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
-		B6589D4F1DB2CC1F00991E5A /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
-		B6589D501DB2CC1F00991E5A /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
-		B6589D511DB2CC1F00991E5A /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
 		B6589D521DB2CC1F00991E5A /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		B6589D531DB2CC1F00991E5A /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 		B6ADBBD21DB6B816001FDF9D /* asdf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = asdf.swift; sourceTree = "<group>"; };
@@ -231,6 +209,13 @@
 				B60F75921DB5532E0080FDCC /* RssRecord.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		1BC3AC1E1DBB110800ACA1D5 /* FeedParser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FeedParser;
 			sourceTree = "<group>";
 		};
 		B60F75551DB412930080FDCC /* AFNetworking */ = {
@@ -304,6 +289,7 @@
 		B6589C161DB2A67B00991E5A /* JsTheater */ = {
 			isa = PBXGroup;
 			children = (
+				1BC3AC1E1DBB110800ACA1D5 /* FeedParser */,
 				1BC3AC181DBB0C1D00ACA1D5 /* Models */,
 				1BC3AC111DBB0BDE00ACA1D5 /* Core Data */,
 				B60F75931DB5532E0080FDCC /* Common.swift */,
@@ -355,22 +341,7 @@
 				B6589D321DB2CC1F00991E5A /* ARChromeActivity~ipad.png */,
 				B6589D331DB2CC1F00991E5A /* Assets */,
 				B6589D351DB2CC1F00991E5A /* Classes */,
-				B6589D391DB2CC1F00991E5A /* GTMNSString+HTML.h */,
-				B6589D3A1DB2CC1F00991E5A /* GTMNSString+HTML.m */,
 				B6589D3B1DB2CC1F00991E5A /* KINWebBrowser */,
-				B6589D451DB2CC1F00991E5A /* MWFeedInfo.h */,
-				B6589D461DB2CC1F00991E5A /* MWFeedInfo.m */,
-				B6589D471DB2CC1F00991E5A /* MWFeedItem.h */,
-				B6589D481DB2CC1F00991E5A /* MWFeedItem.m */,
-				B6589D491DB2CC1F00991E5A /* MWFeedParser.h */,
-				B6589D4A1DB2CC1F00991E5A /* MWFeedParser.m */,
-				B6589D4B1DB2CC1F00991E5A /* MWFeedParser_Private.h */,
-				B6589D4C1DB2CC1F00991E5A /* NSDate+InternetDateTime.h */,
-				B6589D4D1DB2CC1F00991E5A /* NSDate+InternetDateTime.m */,
-				B6589D4E1DB2CC1F00991E5A /* NSString+HTML.h */,
-				B6589D4F1DB2CC1F00991E5A /* NSString+HTML.m */,
-				B6589D501DB2CC1F00991E5A /* NSString+XMLEntities.h */,
-				B6589D511DB2CC1F00991E5A /* NSString+XMLEntities.m */,
 				B6589D521DB2CC1F00991E5A /* SideBar.swift */,
 				B6589D531DB2CC1F00991E5A /* SideBarTableViewController.swift */,
 			);
@@ -603,7 +574,6 @@
 				B6589D6D1DB2CC1F00991E5A /* SideBar.swift in Sources */,
 				B60F75801DB412930080FDCC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B60F75841DB412930080FDCC /* UIProgressView+AFNetworking.m in Sources */,
-				B6589D691DB2CC1F00991E5A /* MWFeedParser.m in Sources */,
 				B60F75821DB412930080FDCC /* UIButton+AFNetworking.m in Sources */,
 				1BC3AC171DBB0C0100ACA1D5 /* Feed+CoreDataProperties.m in Sources */,
 				B60F757B1DB412930080FDCC /* AFURLRequestSerialization.m in Sources */,
@@ -615,16 +585,10 @@
 				B60F75941DB5532E0080FDCC /* RssRecord.swift in Sources */,
 				B6589C4B1DB2A81500991E5A /* FeedTableViewController.swift in Sources */,
 				1BC3AC1C1DBB0D5F00ACA1D5 /* FeedItem.swift in Sources */,
-				B6589D681DB2CC1F00991E5A /* MWFeedItem.m in Sources */,
 				B6ADBBD31DB6B816001FDF9D /* asdf.swift in Sources */,
-				B6589D671DB2CC1F00991E5A /* MWFeedInfo.m in Sources */,
-				B6589D6A1DB2CC1F00991E5A /* NSDate+InternetDateTime.m in Sources */,
 				1BC3AC1A1DBB0CBE00ACA1D5 /* XMLParser.swift in Sources */,
 				B6589D661DB2CC1F00991E5A /* KINWebBrowserViewController.m in Sources */,
 				B6589D551DB2CC1F00991E5A /* ARChromeActivity.m in Sources */,
-				B6589D6B1DB2CC1F00991E5A /* NSString+HTML.m in Sources */,
-				B6589D5F1DB2CC1F00991E5A /* GTMNSString+HTML.m in Sources */,
-				B6589D6C1DB2CC1F00991E5A /* NSString+XMLEntities.m in Sources */,
 				B60F757C1DB412930080FDCC /* AFURLResponseSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

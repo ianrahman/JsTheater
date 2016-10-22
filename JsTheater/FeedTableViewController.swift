@@ -12,7 +12,7 @@ class FeedTableViewController: UITableViewController, MWFeedParserDelegate, Side
     
     var feedItems = [MWFeedItem]()
     var sidebar = SideBar()
-    var savedFeeds = [Feed]()
+    var savedFeeds = [FeedItem]()
     var feedNames = [String]()
     
     

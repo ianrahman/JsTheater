@@ -10,7 +10,8 @@ import Foundation
 import CoreData
 
 struct DataStore {
-    // MARK: - Core Data stack
+    
+    static let sharedDataStore = DataStore()
     
     lazy var applicationDocumentsDirectory: URL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "illyabbi.JsTheater" in the application's documents Application Support directory.
