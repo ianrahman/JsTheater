@@ -15,7 +15,7 @@ class FeedTableViewController: UITableViewController, MWFeedParserDelegate, Side
     var savedFeeds = [FeedItem]()
     var feedNames = [String]()
     
-    
+    let store = DataStore.sharedDataStore
     
     // xml parser
     var myParser: XMLParser = XMLParser()
@@ -139,7 +139,7 @@ class FeedTableViewController: UITableViewController, MWFeedParserDelegate, Side
             self.present(alert, animated: true, completion: nil)
             
         }else{
-            let moc = SwiftCoreDataHelper.managedObjectContext()
+            let moc = store.managedObjectContext()
             
             //            let selectedFeed = moc.existingObjectWithID(savedFeeds[index - 1].objectID, error: nil) as Feed
             //

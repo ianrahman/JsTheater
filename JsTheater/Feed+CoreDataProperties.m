@@ -11,7 +11,7 @@
 @implementation Feed (CoreDataProperties)
 
 + (NSFetchRequest<Feed *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"Feed"];
+	return [[NSFetchRequest alloc] initWithEntityName:@"FeedObject"];
 }
 
 @dynamic name;

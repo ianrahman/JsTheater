@@ -12,6 +12,25 @@ import CoreData
 struct DataStore {
     
     static let sharedDataStore = DataStore()
+    var feedObjects: [FeedObject] = []
+    
+    mutating func fetchData() {
+        let feedObjectRequest = NSFetchRequest<FeedObject>(entityName: "FeedObject")
+        
+        let createdAtSorter = NSSortDescriptor(key: "createdAt", ascending:true)
+        
+        feedObjectRequest.sortDescriptors = [createdAtSorter]
+        
+        do{
+            feedObjects = try managedObjectContext.fetch(feedObjectRequest)
+        }catch let error as NSError{
+            print(error)
+            feedObjects = []
+        }
+        
+        //// perform a fetch request to fill an array property on your datastore
+
+    }
     
     lazy var applicationDocumentsDirectory: URL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "illyabbi.JsTheater" in the application's documents Application Support directory.
