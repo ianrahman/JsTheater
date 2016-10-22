@@ -10,7 +10,7 @@ import CoreData
 class SwiftCoreDataHelper: NSObject {
    
     class func directoryForDatabaseFilename()->NSString{
-        return NSHomeDirectory().stringByAppendingString("/Library/Private Documents")
+        return NSHomeDirectory() + "/Library/Private Documents"
     }
     
 
@@ -24,26 +24,26 @@ class SwiftCoreDataHelper: NSObject {
         var error:NSError? = nil
 
         do {
-            try NSFileManager.defaultManager().createDirectoryAtPath(SwiftCoreDataHelper.directoryForDatabaseFilename() as String, withIntermediateDirectories: true, attributes: [:])
+            try FileManager.default.createDirectory(atPath: SwiftCoreDataHelper.directoryForDatabaseFilename() as String, withIntermediateDirectories: true, attributes: [:])
         } catch {
             print(error)
         }
 
 //        NSFileManager.defaultManager().createDirectoryAtPath(SwiftCoreDataHelper.directoryForDatabaseFilename(), withIntermediateDirectories: true, attributes: nil, error: &error)
 
-        let path:NSString = "\(SwiftCoreDataHelper.directoryForDatabaseFilename()) + \(SwiftCoreDataHelper.databaseFilename())"
+        let path:NSString = "\(SwiftCoreDataHelper.directoryForDatabaseFilename()) + \(SwiftCoreDataHelper.databaseFilename())" as NSString
         
-        let url:NSURL = NSURL(fileURLWithPath: path as String)
+        let url:URL = URL(fileURLWithPath: path as String)
 //        let url:NSURL = NSURL(fileURLWithPath: path)!
         
-        let managedModel:NSManagedObjectModel = NSManagedObjectModel.mergedModelFromBundles(nil)!
+        let managedModel:NSManagedObjectModel = NSManagedObjectModel.mergedModel(from: nil)!
         
         
         let storeCoordinator:NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedModel)
 //        var storeCoordinator:NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedModel)
         
         do {
-            try storeCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         } catch let error as NSError {
             print(error.localizedDescription)
             
@@ -56,7 +56,7 @@ class SwiftCoreDataHelper: NSObject {
 //            }
 //        }
         
-        let managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+        let managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
 //        var managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
         
         managedObjectContext.persistentStoreCoordinator = storeCoordinator
@@ -64,17 +64,17 @@ class SwiftCoreDataHelper: NSObject {
         
     }
     
-    func insertManagedObject(className:NSString, managedObjectConect:NSManagedObjectContext)->AnyObject{
+    func insertManagedObject(_ className:NSString, managedObjectConect:NSManagedObjectContext)->AnyObject{
 //    class func insertManagedObject(className:NSString, managedObjectConect:NSManagedObjectContext)->AnyObject{
     
 //        let managedObject:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(className, inManagedObjectContext: managedObjectConect) as NSManagedObject
-        let managedObject:NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(className as String, inManagedObjectContext: managedObjectConect) as NSManagedObject
+        let managedObject:NSManagedObject = NSEntityDescription.insertNewObject(forEntityName: className as String, into: managedObjectConect) as NSManagedObject
         
         return managedObject
         
     }
     
-    func saveManagedObjectContext(managedObjectContext:NSManagedObjectContext)->Bool{
+    func saveManagedObjectContext(_ managedObjectContext:NSManagedObjectContext)->Bool{
         do{
             try managedObjectContext.save()
         } catch {
@@ -93,10 +93,10 @@ class SwiftCoreDataHelper: NSObject {
 //    }
 
     
-    func fetchEntities(className:NSString, withPredicate predicate:NSPredicate?, managedObjectContext:NSManagedObjectContext)->NSArray{
+    func fetchEntities(_ className:NSString, withPredicate predicate:NSPredicate?, managedObjectContext:NSManagedObjectContext)->NSArray{
         let items = [NSArray]()
         let fetchRequest:NSFetchRequest = NSFetchRequest()
-        let entetyDescription:NSEntityDescription = NSEntityDescription.entityForName(className as String, inManagedObjectContext: managedObjectContext)!
+        let entetyDescription:NSEntityDescription = NSEntityDescription.entity(forEntityName: className as String, in: managedObjectContext)!
 //    class func fetchEntities(className:NSString, withPredicate predicate:NSPredicate?, managedObjectContext:NSManagedObjectContext)->NSArray{
 //        let fetchRequest:NSFetchRequest = NSFetchRequest()
 //        let entetyDescription:NSEntityDescription = NSEntityDescription.entityForName(className, inManagedObjectContext: managedObjectContext)!
@@ -108,11 +108,11 @@ class SwiftCoreDataHelper: NSObject {
 
         fetchRequest.returnsObjectsAsFaults = false
         do{
-            _ = try managedObjectContext.executeFetchRequest(fetchRequest)
+            _ = try managedObjectContext.fetch(fetchRequest)
             
         } catch {
         }
-        return items
+        return items as NSArray
     }
 
 //        fetchRequest.entity = entetyDescription

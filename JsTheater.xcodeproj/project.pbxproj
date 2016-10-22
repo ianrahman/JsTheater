@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BC3AC101DBB0AF900ACA1D5 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC3AC0F1DBB0AF900ACA1D5 /* DataStore.swift */; };
 		B60F754E1DB3E4A70080FDCC /* FeedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B60F754C1DB3E4A70080FDCC /* FeedModel.xcdatamodeld */; };
 		B60F75531DB3E5190080FDCC /* Feed+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F75501DB3E5190080FDCC /* Feed+CoreDataProperties.m */; };
 		B60F75541DB3E5190080FDCC /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F75521DB3E5190080FDCC /* Feed.m */; };
@@ -84,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BC3AC0F1DBB0AF900ACA1D5 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B60F754D1DB3E4A70080FDCC /* FeedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedModel.xcdatamodel; sourceTree = "<group>"; };
 		B60F754F1DB3E5190080FDCC /* Feed+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Feed+CoreDataProperties.h"; sourceTree = "<group>"; };
 		B60F75501DB3E5190080FDCC /* Feed+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Feed+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		B6589C161DB2A67B00991E5A /* JsTheater */ = {
 			isa = PBXGroup;
 			children = (
+				1BC3AC0F1DBB0AF900ACA1D5 /* DataStore.swift */,
 				B60F75921DB5532E0080FDCC /* RssRecord.swift */,
 				B60F75931DB5532E0080FDCC /* Common.swift */,
 				B6589D2A1DB2CC1F00991E5A /* Helper */,
@@ -465,15 +468,18 @@
 					B6589C131DB2A67B00991E5A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = VMHRW7PN83;
+						LastSwiftMigration = 0800;
 					};
 					B6589C2A1DB2A67B00991E5A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = VMHRW7PN83;
+						LastSwiftMigration = 0800;
 						TestTargetID = B6589C131DB2A67B00991E5A;
 					};
 					B6589C351DB2A67B00991E5A = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = VMHRW7PN83;
+						LastSwiftMigration = 0800;
 						TestTargetID = B6589C131DB2A67B00991E5A;
 					};
 				};
@@ -581,6 +587,7 @@
 				B6589D691DB2CC1F00991E5A /* MWFeedParser.m in Sources */,
 				B60F75821DB412930080FDCC /* UIButton+AFNetworking.m in Sources */,
 				B60F757B1DB412930080FDCC /* AFURLRequestSerialization.m in Sources */,
+				1BC3AC101DBB0AF900ACA1D5 /* DataStore.swift in Sources */,
 				B60F757A1DB412930080FDCC /* AFSecurityPolicy.m in Sources */,
 				B60F757D1DB412930080FDCC /* AFURLSessionManager.m in Sources */,
 				B60F754E1DB3E4A70080FDCC /* FeedModel.xcdatamodeld in Sources */,
@@ -747,6 +754,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JsTheater/JsTheater-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -760,6 +768,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = illyabbi.JsTheater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JsTheater/JsTheater-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -771,6 +780,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = illyabbi.JsTheaterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JsTheater.app/JsTheater";
 			};
 			name = Debug;
@@ -783,6 +793,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = illyabbi.JsTheaterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JsTheater.app/JsTheater";
 			};
 			name = Release;
@@ -794,6 +805,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = illyabbi.JsTheaterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = JsTheater;
 			};
 			name = Debug;
@@ -805,6 +817,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = illyabbi.JsTheaterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = JsTheater;
 			};
 			name = Release;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFeedParserDelegate, SideBarDelegate {
+class FeedTableViewController: UITableViewController, XMLParserDelegate, MWFeedParserDelegate, SideBarDelegate {
     
     var feedItems = [MWFeedItem]()
     var sidebar = SideBar()
@@ -18,7 +18,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     
     
     // xml parser
-    var myParser: NSXMLParser = NSXMLParser()
+    var myParser: XMLParser = XMLParser()
     
     // rss records
     var rssRecordList : [RssRecord] = [RssRecord]()
@@ -33,7 +33,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     
     
     //    func request(){
-    func request(urlString:String?){
+    func request(_ urlString:String?){
         
         if urlString == nil {
             
@@ -42,17 +42,17 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
             //            let url = NSURL(string: "http://feeds.nytimes.com/nyt/rss/Technology")
             
             
-            let url = NSURL(string: "http://jstheater.blogspot.com/feeds/posts/default?alt=rss")
+            let url = URL(string: "http://jstheater.blogspot.com/feeds/posts/default?alt=rss")
             //            let url = NSURL(string: "http://www.texanerin.com/feed/")
             let feedParser = MWFeedParser(feedURL: url)
-            feedParser.delegate = self
-            feedParser.parse()
+            feedParser?.delegate = self
+            feedParser?.parse()
             
         }else{
-            let url = NSURL(string: urlString!)
+            let url = URL(string: urlString!)
             let feedParser = MWFeedParser(feedURL: url)
-            feedParser.delegate = self
-            feedParser.parse()
+            feedParser?.delegate = self
+            feedParser?.parse()
             
         }
     }
@@ -81,40 +81,40 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     
     
     //MARK: FEED PARSER DELEGATE
-    func feedParserDidStart(parser: MWFeedParser!) {
+    func feedParserDidStart(_ parser: MWFeedParser!) {
         feedItems = [MWFeedItem]()
     }
     
-    func feedParserDidFinish(parser: MWFeedParser!) {
+    func feedParserDidFinish(_ parser: MWFeedParser!) {
         self.tableView.reloadData()
     }
     
-    func feedParser(parser: MWFeedParser!, didParseFeedInfo info: MWFeedInfo!) {
+    func feedParser(_ parser: MWFeedParser!, didParseFeedInfo info: MWFeedInfo!) {
         print(info)
         self.title = info.title
     }
     
-    func feedParser(parser: MWFeedParser!, didParseFeedItem item: MWFeedItem!) {
+    func feedParser(_ parser: MWFeedParser!, didParseFeedItem item: MWFeedItem!) {
         feedItems.append(item)
     }
     
     
     
     //MARK: SIDEBAR DELEGATE
-    func sideBarDidSelectMenuButtonAtIndex(index: Int) {
+    func sideBarDidSelectMenuButtonAtIndex(_ index: Int) {
         if index == 0{ //ADD FEED BUTTON
             
-            let alert = UIAlertController(title: "Add new feed", message: "Enter feed name and URL", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addTextFieldWithConfigurationHandler({ (textField: UITextField!) -> Void in
+            let alert = UIAlertController(title: "Add new feed", message: "Enter feed name and URL", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addTextField(configurationHandler: { (textField: UITextField!) -> Void in
                 textField.placeholder = "feed name"
             })
             
-            alert.addTextFieldWithConfigurationHandler({ (textField: UITextField!) -> Void in
+            alert.addTextField(configurationHandler: { (textField: UITextField!) -> Void in
                 textField.placeholder = "feed URL"
             })
             
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (alertAction:UIAlertAction!) -> Void in
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.default, handler: { (alertAction:UIAlertAction!) -> Void in
                 let textFields = alert.textFields
                 
                 let feedNameTextField = (textFields?.first)! as UITextField
@@ -136,7 +136,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
                 
             }))
             
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             
         }else{
             let moc = SwiftCoreDataHelper.managedObjectContext()
@@ -162,7 +162,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // load Rss data and parse
@@ -181,34 +181,34 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     }
     
     // MARK: - Table view data source
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
     
     //return the number of sections
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     //return the number of rows
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.rssRecordList.count
         return feedItems.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! FeedTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedTableViewCell
         
-        let item = feedItems[indexPath.row] as MWFeedItem?
+        let item = feedItems[(indexPath as NSIndexPath).row] as MWFeedItem?
         cell.itemTitleLabel.text = item?.title
         
-        let thisRecord : RssRecord  = self.rssRecordList[indexPath.row]
+        let thisRecord : RssRecord  = self.rssRecordList[(indexPath as NSIndexPath).row]
         cell.itemDateLabel.text = thisRecord.pubDate
         
         //        one method?
-        func getImageFromURL(fileURL: String) -> UIImage {
-            var url = NSURL(string: mediaURL)!
-            var image = UIImage(data: Data(contentsOf: url))!
+        func getImageFromURL(_ fileURL: String) -> UIImage {
+            let url = URL(string: mediaURL)!
+            let image = UIImage(data: Data(contentsOf: url))!
             return image
 
         }
@@ -227,7 +227,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
         
         
         //        another method
-        let url = NSURL(string: mediaURL)!
+        let url = URL(string: mediaURL)!
         //        [cell.itemImageView, sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         //            if (!error) {
         //            cell.itemImageView.image = image
@@ -242,7 +242,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
         
         if item?.content != nil {
             //            let htmlContent = item!.content as NSString
-            var imageSource = ""
+            let imageSource = ""
             //
             //            let rangeOfString = NSMakeRange(0, htmlContent.length)
             //            let regex = try! NSRegularExpression(pattern: "(<img.*?src=\")(.*?)(\".*?>)", options: [.CaseInsensitive, .AnchorsMatchLines])
@@ -260,7 +260,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
             //
             if imageSource != "" {
                 
-                cell.itemImageView.setImageWithURL(NSURL(string: mediaURL)!, placeholderImage: UIImage(named: "placeholder"))
+                cell.itemImageView.setImageWith(URL(string: mediaURL)!, placeholderImage: UIImage(named: "placeholder"))
                 print("11111",mediaURL)
                 //
             }else{
@@ -277,13 +277,13 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = feedItems[indexPath.row] as MWFeedItem
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = feedItems[(indexPath as NSIndexPath).row] as MWFeedItem
         
         let webBrowser = KINWebBrowserViewController()
-        let url = NSURL(string: item.link)
+        let url = URL(string: item.link)
         
-        webBrowser.loadURL(url)
+        webBrowser.load(url)
         
         self.navigationController?.pushViewController(webBrowser, animated: true)
         
@@ -295,12 +295,12 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     // MARK: - NSXML Parse delegate function
     
     // start parsing document
-    func parserDidStartDocument(parser: NSXMLParser) {
+    func parserDidStartDocument(_ parser: XMLParser) {
         // start parsing
     }
     
     // element start detected
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
         if elementName == "item" {
             //            postTitle = ""
@@ -327,7 +327,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     
     // characters received for some element
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         if isTagFound["title"] == true {
             self.rssRecord?.title += string
@@ -346,7 +346,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     }
     
     // element end detected
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         if elementName == "item" {
             
@@ -374,7 +374,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     }
     
     // end parsing document
-    func parserDidEndDocument(parser: NSXMLParser) {
+    func parserDidEndDocument(_ parser: XMLParser) {
         
         //reload table view
         //        self.myTableView.reloadData()
@@ -384,7 +384,7 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     }
     
     // if any error detected while parsing.
-    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         
         //  stop animation
         //        self.spinner.stopAnimating()
@@ -400,15 +400,15 @@ class FeedTableViewController: UITableViewController, NSXMLParserDelegate, MWFee
     // MARK: - Utility functions
     
     // load rss and parse it
-    private func loadRSSData(){
+    fileprivate func loadRSSData(){
         
-        if let rssURL = NSURL(string: RSS_FEED_URL) {
+        if let rssURL = URL(string: RSS_FEED_URL) {
             
             // start spinner
             //            self.spinner.startAnimating()
             
             // fetch rss content from url
-            self.myParser = NSXMLParser(contentsOfURL: rssURL)!
+            self.myParser = XMLParser(contentsOf: rssURL)!
             
             // set parser delegate
             self.myParser.delegate = self
